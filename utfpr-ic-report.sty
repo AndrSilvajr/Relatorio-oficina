@@ -1,0 +1,726 @@
+%%%% utfpr-ic-report.sty, 2021/09/21 v1.9
+%%%% Copyright (C) 2017-2021 Luiz E. M. Lima (luizeduardomlima@gmail.com)
+
+
+%% Identificação e atualizações
+%\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%\ProvidesPackage{utfpr-ic-report}[2022/09/21 v1.9 utfpr-ic-report package]
+%%%% Alteração de alguns pacotes, comandos, formatações e tipografias.
+% \ProvidesPackage{utfpr-ic-report}[2021/09/10 v1.8 utfpr-ic-report package]
+%%%% Alteração de alguns pacotes, comandos, formatações e tipografias.
+% \ProvidesPackage{utfpr-ic-report}[2021/08/05 v1.7 utfpr-ic-report package]
+%%%% Alteração de alguns pacotes, comandos, formatações e tipografias.
+% \ProvidesPackage{utfpr-ic-report}[2021/07/02 v1.6 utfpr-ic-report package]
+%%%% Alteração de alguns pacotes, comandos, formatações e tipografias.
+% \ProvidesPackage{utfpr-ic-report}[2020/09/01 v1.5 utfpr-ic-report package]
+%%%% Alteração de alguns pacotes, comandos, formatações e tipografias.
+% \ProvidesPackage{utfpr-ic-report}[2019/12/01 v1.4 utfpr-ic-report package]
+%%%% Alteração de alguns pacotes, comandos, formatações e tipografias.
+% \ProvidesPackage{utfpr-ic-report}[2019/10/12 v1.3 utfpr-ic-report package]
+%%%% Alteração de alguns pacotes, comandos, formatações e tipografias.
+% \ProvidesPackage{utfpr-ic-report}[2019/09/07 v1.2 utfpr-ic-report package]
+%%%% Alteração de alguns pacotes, comandos, formatações e tipografias.
+%%%% Alteração de nomes dos arquivos (utfprpgtex-ic-report --> utfpr-ic-report).
+%%%% Remoção de opções de modelo de relatório (somente ModelA).
+% \ProvidesPackage{utfprpgtex-ic-report}[2018/10/10 v1.1 utfprpgtex-ic-report package]
+%%%% Alteração de alguns pacotes, comandos, formatações e tipografias.
+%%%% Alteração de bibtex para biber (biblatex) na produção de citações e referências.
+% \ProvidesPackage{utfprpgtex-ic-report}[2017/09/07 v1.0 utfprpgtex-ic-report package]
+%%%% Criação dos arquivos constituintes.
+
+%% Opções do pacote: (^) padrão
+\RequirePackage{xpatch}
+%%%% Licença do documento: CC (Creative Commons) ou None (^)
+\newbool{@DocLicCC}
+\DeclareOption{DocLic=CC}{\booltrue{@DocLicCC}}
+\DeclareOption{DocLic=None}{\boolfalse{@DocLicCC}}
+%%%% Licença CC: BY (^), BY-SA, BY-ND, BY-NC, BY-NC-SA ou BY-NC-ND
+\newbool{@CCLicNC}
+\newbool{@CCLicND}
+\newbool{@CCLicSA}
+\DeclareOption{CCLic=BY}{%
+  \boolfalse{@CCLicNC}%
+  \boolfalse{@CCLicND}%
+  \boolfalse{@CCLicSA}%
+}
+\DeclareOption{CCLic=BY-SA}{\booltrue{@CCLicSA}}
+\DeclareOption{CCLic=BY-ND}{\booltrue{@CCLicND}}
+\DeclareOption{CCLic=BY-NC}{\booltrue{@CCLicNC}}
+\DeclareOption{CCLic=BY-NC-SA}{\ExecuteOptions{CCLic = BY-NC, CCLic = BY-SA}}
+\DeclareOption{CCLic=BY-NC-ND}{\ExecuteOptions{CCLic = BY-NC, CCLic = BY-ND}}
+%%%% Cor de hyperlinks: DarkBlue (^) ou TextColor
+\newbool{@LinkDarkBlue}
+\DeclareOption{Link=DarkBlue}{\booltrue{@LinkDarkBlue}}
+\DeclareOption{Link=TextColor}{\boolfalse{@LinkDarkBlue}}
+%%%% Citação ABNT: AAY (NOME, ANO), NRB (1) ou NSB [1] (^)
+\newbool{@ABNTCitNRB}
+\newbool{@ABNTCitNSB}
+\DeclareOption{ABNTCit=AAY}{%
+  \boolfalse{@ABNTCitNRB}%
+  \boolfalse{@ABNTCitNSB}%
+}
+\DeclareOption{ABNTCit=NRB}{%
+  \booltrue{@ABNTCitNRB}%
+  \boolfalse{@ABNTCitNSB}%
+}
+\DeclareOption{ABNTCit=NSB}{%
+  \booltrue{@ABNTCitNRB}%
+  \booltrue{@ABNTCitNSB}%
+}
+%%%% Links de URLs nas referências: Icon ou Text (^)
+\newbool{@BibURLIcon}
+\DeclareOption{BibURL=Icon}{\booltrue{@BibURLIcon}}
+\DeclareOption{BibURL=Text}{\boolfalse{@BibURLIcon}}
+%%%% Aviso de indisponíveis, execução de padrões e processamento de carregadas
+\DeclareOption*{\PackageWarning{utfpr-ic-report}{Unknown option `\CurrentOption'}}
+\ExecuteOptions{%
+  DocLic  = None,%
+  CCLic   = BY,%
+  Link    = DarkBlue,%
+  ABNTCit = NSB,%
+  BibURL  = Text,%
+}
+\ProcessOptions\relax%
+
+%% Pacotes utilizados
+\RequirePackage{ifdraft}
+\RequirePackage{ifluatex}
+\RequirePackage{ifxetex}
+\RequirePackage{babel}
+\ifboolexpr{ bool {luatex} or bool {xetex} }{%
+  \RequirePackage{fontspec}%
+  \RequirePackage{amsmath}%
+  \RequirePackage{unicode-math}%
+  \defaultfontfeatures{Ligatures = TeX}%
+  \setmainfont{TeX Gyre Termes}%
+  \setsansfont{TeX Gyre Heros}[Scale = 0.9]%
+  \setmathfont{TeX Gyre Termes Math}%
+}{%
+  \RequirePackage[utf8]{inputenc}%
+  \RequirePackage[T1]{fontenc}%
+  \RequirePackage{lmodern}%
+  \RequirePackage{newtxtext}%
+  \RequirePackage[smallerops]{newtxmath}%
+}
+\RequirePackage{fontawesome5}
+\RequirePackage{microtype}
+\RequirePackage{ragged2e}
+\RequirePackage[overload]{textcase}
+\RequirePackage{csquotes}
+\RequirePackage{xcolor}
+\RequirePackage[\ifdraft{showframe}{}]{geometry}
+\RequirePackage{indentfirst}
+\RequirePackage{tocloft}
+\RequirePackage{fancyhdr}
+\RequirePackage[bottom, hang]{footmisc}
+\RequirePackage{enumitem}
+\RequirePackage{icomma}
+\RequirePackage[content = {\faFileImage[regular]}, position = {center}]{draftfigure}
+\RequirePackage{graphicx}
+\RequirePackage{qrcode}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{caption}
+\RequirePackage[%
+  bibstyle     = abnt\ifbool{@ABNTCitNRB}{-numeric}{},%
+  citestyle    = abnt\ifbool{@ABNTCitNRB}{-numeric}{},%
+  natbib       = true,%
+  sorting      = \ifbool{@ABNTCitNRB}{none}{nty},%
+  uniquename   = init,%
+  giveninits   = true,%
+  repeatfields = true,%
+  ittitles     = true,%
+  \ifbool{@ABNTCitNRB}{comp = true,}{}%
+]{biblatex}
+\RequirePackage[hyphens]{xurl}
+\RequirePackage{hyperref}
+\RequirePackage{nameref}
+\RequirePackage[nameinlink, noabbrev]{cleveref}
+
+%% Fontes
+\newcommand*{\XVIptFontSize}{\fontsize{16}{20}\selectfont}
+\csletcs{old@ttfamily}{ttfamily}
+\renewcommand*{\ttfamily}{\old@ttfamily\hyphenchar\font=`\-\relax}
+\csletcs{Old@TeX}{TeX}
+\csletcs{Old@LaTeX}{LaTeX}
+\renewrobustcmd*{\TeX}{{\fontfamily{lmr}\selectfont\protect\Old@TeX}}
+\renewrobustcmd*{\LaTeX}{{\fontfamily{lmr}\selectfont\Old@LaTeX}}
+
+%% Cores
+\definecolor{UTFPRBlack}{cmyk}{0, 0, 0, 1}
+\definecolor{UTFPRYellow}{cmyk}{0, 0.2, 1, 0}
+\definecolor{ADarkBlue}{rgb}{0, 0, 0.2}
+\colorlet{LinkColor}{\ifbool{@LinkDarkBlue}{ADarkBlue}{.}}
+
+%% Hiperlinks e URLs
+\hypersetup{%
+  breaklinks         = true,%
+  colorlinks         = true,%
+  allcolors          = LinkColor,%
+  bookmarksdepth     = 2,%
+  bookmarksnumbered  = true,%
+  pdfdisplaydoctitle = true,%
+  pdfencoding        = auto,%
+}
+\pdfstringdefDisableCommands{\renewcommand*{\\}{ }}
+\DeclareUrlCommand\URL{%
+  \renewcommand*{\UrlFont}{\color{LinkColor}\ttfamily}%
+  \renewcommand*{\UrlLeft}{<}%
+  \renewcommand*{\UrlRight}{>}%
+}
+\csgappto{UrlBreaks}{\UrlOrds}
+\csgappto{UrlSpecials}{\do\_{\_\penalty\UrlBreakPenalty}}
+\qrset{height = 15mm, hyperlink}
+
+%% Variáveis dependentes do idioma
+\newcommand*{\MECName}{Ministério da Educação}
+\newcommand*{\UTFPRName}{Universidade Tecnológica Federal do Paraná}
+\newcommand*{\PROPPGName}{Pró-Reitoria de Pesquisa e Pós-Graduação}
+\newcommand*{\RprtCall}{Relatório}
+\newcommand*{\RprtTypeSmp}{de Oficina de integração}%% Ou Técnico
+\newcommand*{\RprtTypeName}{\RprtCall\space\RprtType}
+\newcommand*{\RprtStgName}{Relatório de Oficina de integração}
+%\newcommand*{\RprtDscr}{\RprtTypeName\ do Programa de Iniciação \InitType\ da \UTFPRName.}
+\newcommand*{\TtlSmp}{Título do Trabalho do{(a)} Aluno{(a)}, conforme Descrito no Plano de Trabalho}
+%\newcommand*{\LnkdPrjcCall}{vinculado ao projeto}
+%\newcommand*{\PrjcTtlSmp}{Título do Projeto do{(a)} Orientador{(a)}, conforme Descrito no Plano de Trabalho}
+%\newcommand*{\InitDateCall}{Data de Ingresso no Programa:}
+%\newcommand*{\InitTypeSmp}{Científica}%% Ou Tecnológica e Inovação
+%\newcommand*{\KnwlAreaCall}{Área do Conhecimento:}
+%\newcommand*{\KnwlAreaSmp}{0.00.00.00{-}0 \textemdash\ Área do CNPq}
+%\newcommand*{\StdtNameSmp}{Nome Completo do{(a)} Aluno{(a)}}
+%\newcommand*{\StdtModeSmp}{Bolsista Modalidade/Agência ou Voluntário{(a)} Modalidade}
+%\newcommand*{\StdtCrsSmp}{Curso do{(a)} Aluno{(a)}}
+%\newcommand*{\AdvTtlSmp}{Prof{(a)}. Dr{(a)}.}
+%\newcommand*{\AdvNameSmp}{Nome Completo do{(a)} Orientador{(a)}}
+\newcommand*{\CmpsNameSmp}{Cidade}
+\newcommand*{\CCLicType}{%
+  \ifbool{@CCLicNC}{\csuse{textendash}Não\-Co\-mer\-cial}{}%
+  \ifbool{@CCLicND}{\csuse{textendash}Sem\-De\-ri\-va\-ções}{}%
+  \ifbool{@CCLicSA}{\csuse{textendash}Com\-par\-ti\-lha\-Igual}{}%
+}
+\newcommand*{\CCLicDescr}{%
+  Este relatório está licenciado sob uma Licença %
+  \href{\CCLicURL}{Cre\-ative Com\-mons Atribuição{\CCLicType} 4.0 Internacional}.%
+}
+\newcommand*{\SrcCall}{Fonte}
+\newcommand*{\CvrPageName}{Capa}
+\newcommand*{\TtlPageName}{Folha de Rosto}
+%%%% Definições em Português
+\csappto{extrasbrazilian}{%
+  \renewcommand*{\MECName}{Ministério da Educação}%
+  \renewcommand*{\UTFPRName}{Universidade Tecnológica Federal do Paraná}%
+  \renewcommand*{\PROPPGName}{Pró-Reitoria de Pesquisa e Pós-Graduação}%
+  \renewcommand*{\RprtCall}{Relatório}%
+  \renewcommand*{\RprtTypeSmp}{de Oficina de integração}%% Ou Técnico
+  \renewcommand*{\RprtTypeName}{\RprtCall\space\RprtType}%
+  %\renewcommand*{\RprtStgName}{\RprtCall\space\RprtStg\ de Atividades{\NewLine}de Iniciação \InitType}%
+  %\renewcommand*{\RprtDscr}{\RprtTypeName\ do Programa de Iniciação \InitType\ da \UTFPRName.}%
+  %\renewcommand*{\TtlSmp}{Título do Trabalho do{(a)} Aluno{(a)}, conforme Descrito no Plano de Trabalho}%
+  %\renewcommand*{\LnkdPrjcCall}{vinculado ao projeto}%
+  %\renewcommand*{\PrjcTtlSmp}{Título do Projeto do{(a)} Orientador{(a)}, conforme Descrito no Plano de Trabalho}%
+  %\renewcommand*{\InitDateCall}{Data de Ingresso no Programa:}%
+ % \renewcommand*{\InitTypeSmp}{Científica}%% Ou Tecnológica e Inovação
+  %\renewcommand*{\KnwlAreaCall}{Área do Conhecimento:}%
+  %\renewcommand*{\KnwlAreaSmp}{0.00.00.00{-}0 \textemdash\ Área do CNPq}%
+  %\renewcommand*{\StdtNameSmp}{Nome Completo do{(a)} Aluno{(a)}}%
+  %\renewcommand*{\StdtModeSmp}{Bolsista Modalidade/Agência ou Voluntário{(a)} Modalidade}%
+  %\renewcommand*{\StdtCrsSmp}{Curso do{(a)} Aluno{(a)}}%
+  %\renewcommand*{\AdvTtlSmp}{Prof{(a)}. Dr{(a)}.}%
+  %\renewcommand*{\AdvNameSmp}{Nome Completo do{(a)} Orientador{(a)}}%
+  %\renewcommand*{\CmpsNameSmp}{Cidade}%
+  \renewcommand*{\CCLicType}{%
+    \ifbool{@CCLicNC}{\csuse{textendash}Não\-Co\-mer\-cial}{}%
+    \ifbool{@CCLicND}{\csuse{textendash}Sem\-De\-ri\-va\-ções}{}%
+    \ifbool{@CCLicSA}{\csuse{textendash}Com\-par\-ti\-lha\-Igual}{}%
+  }%
+  \renewcommand*{\CCLicDescr}{%
+    Este relatório está licenciado sob uma Licença %
+    \href{\CCLicURL}{Cre\-ative Com\-mons Atribuição{\CCLicType} 4.0 Internacional}.%
+  }%
+  \renewcommand*{\SrcCall}{Fonte}%
+  \renewcommand*{\CvrPageName}{Capa}%
+  \renewcommand*{\TtlPageName}{Folha de Rosto}%
+}
+
+%% Definições de comandos
+\newcommand*{\ORCIDIcon}{%
+  \ifdraft{%
+    \faIdCard[regular]%
+  }{%
+    \XeTeXLinkBox{\raisebox{-0.2ex}{\includegraphics[height = 2ex]{orcid}}}%
+  }%
+}
+\newcommand*{\ORCID}[1]{\ifblank{#1}{}{\href{https://orcid.org/#1}{\ORCIDIcon}}}
+\newcommand*{\email}[1]{\ifblank{#1}{}{\href{mailto:#1}{\faEnvelope[regular]}}}
+\newcommand*{\CCLicAcr}[1]{%
+  \ifbool{@CCLicNC}{#1nc}{}%
+  \ifbool{@CCLicND}{#1nd}{}%
+  \ifbool{@CCLicSA}{#1sa}{}%
+}
+\newcommand*{\CCLicLogo}{\href{\CCLicURL}{\XeTeXLinkBox{\includegraphics[height = 4.5ex]{cc-by\CCLicAcr{-}}}}}
+\newcommand*{\CCLicURL}{http://creativecommons.org/licenses/by\CCLicAcr{-}/4.0/}
+\newcommand*{\LinkIcon}{{\fontsize{1.5ex}{1.5ex}\selectfont\faExternalLink*}}
+\newcommand*{\Source}[1]{\ifblank{#1}{}{\par\SrcCall: \Maybe@AddPeriod{#1}}}
+\newcommand*{\RprtStg}{Final}
+\newcommand*{\RprtType}{\RprtTypeSmp}
+\newcommand*{\ReportInfo}[2][Final]{%
+  \ifblank{#1}{}{\renewcommand*{\RprtStg}{#1}}%
+  \ifblank{#2}{}{\renewcommand*{\RprtType}{#2}}%
+}
+%\newcommand*{\InitDate}{08/\number\numexpr\year-1}
+\newcommand*{\InitType}{\InitTypeSmp}
+%\newcommand*{\InitiationInfo}[2][08/\number\numexpr\year-1]{%
+  %\ifblank{#1}{}{\renewcommand*{\InitDate}{#1}}%
+  %\ifblank{#2}{}{\renewcommand*{\InitType}{#2}}%
+%}
+\newcommand*{\KnwlArea}{\KnwlAreaSmp}
+\newcommand*{\KnowledgeArea}[2][]{%
+  \ifblank{#1}{%
+    \ifblank{#2}{}{\renewcommand*{\KnwlArea}{#2}}%
+  }{%
+    \renewcommand*{\KnwlArea}{#1\ifblank{#2}{}{ \textemdash\ #2}}%
+  }%
+}
+\newcommand*{\CmpsName}{\CmpsNameSmp}
+\newcommand*{\Campus}[1]{\ifblank{#1}{}{\renewcommand*{\CmpsName}{#1}}}
+\newcommand*{\PrjcTtl}{\PrjcTtlSmp}
+\newcommand*{\ProjectTitle}[1]{\ifblank{#1}{}{\renewcommand*{\PrjcTtl}{#1}}}
+\csletcs{Title}{title}
+\csletcs{Date}{date}
+\Title{\TtlSmp}
+\Date{\number\year}
+%%%% Autores: estudante e orientador
+\define@key{Author}{Title}{\ifcsvoid{ATag}{}{\ifblank{#1}{}{\csdef{\csuse{ATag}Title}{#1}}}}
+\define@key{Author}{Name}{\ifcsvoid{ATag}{}{\ifblank{#1}{}{\csdef{\csuse{ATag}Name}{#1}}}}
+%\define@key{Author}{Email}{\ifcsvoid{ATag}{}{\ifblank{#1}{}{\csdef{\csuse{ATag}Email}{\email{#1}}}}}
+%\define@key{Author}{ORCID}{\ifcsvoid{ATag}{}{\ifblank{#1}{}{\csdef{\csuse{ATag}ORCID}{\ORCID{#1}}}}}
+%\define@key{Author}{Course}{\ifcsvoid{ATag}{}{\ifblank{#1}{}{\csdef{\csuse{ATag}Course}{#1}}}}
+%\define@key{Author}{Mode}{\ifcsvoid{ATag}{}{\ifblank{#1}{}{\csdef{\csuse{ATag}Mode}{#1}}}}
+%\define@key{Author}{Signature}{\ifcsvoid{ATag}{}{\ifblank{#1}{}{\csdef{\csuse{ATag}Signature}{#1}}}}
+\csletcs{KV@Author@title}{KV@Author@Title}
+\csletcs{KV@Author@name}{KV@Author@Name}
+%\csletcs{KV@Author@email}{KV@Author@Email}
+%\csletcs{KV@Author@orcid}{KV@Author@ORCID}
+%\csletcs{KV@Author@course}{KV@Author@Course}
+%\csletcs{KV@Author@mode}{KV@Author@Mode}
+%\csletcs{KV@Author@signature}{KV@Author@Signature}
+\newcommand*{\Author}[2][Auth]{%
+  \ifblank{#2}{}{%
+    \csdef{ATag}{#1@}%
+    \setkeys{Author}{%
+      Title     = {},%
+      Name      = {},%
+      %Email     = {},%
+     %ORCID     = {},%
+      %Course    = {},%
+      %Mode      = {},%
+      %Signature = {},%
+      #2,%
+    }%
+    \ifcsvoid{\csuse{ATag}Name}{%
+      \csdef{\csuse{ATag}Title}{}%
+      %\csdef{\csuse{ATag}Email}{}%
+     % \csdef{\csuse{ATag}ORCID}{}%
+      %\csdef{\csuse{ATag}Course}{}%
+      %\csdef{\csuse{ATag}Mode}{}%
+      %\csdef{\csuse{ATag}Signature}{}%
+    }{}%
+    \csundef{ATag}%
+  }%
+}
+\newcommand*{\Student}[1]{\Author[Stdt]{#1}}
+%\newcommand*{\Advisor}[1]{\Author[Adv]{#1}}
+\newcommand*{\StudentName}{\Stdt@Name}
+\newcommand*{\AdvisorName}{\Adv@Name}
+\Student{%
+  Name   = {Aluno 1 \protect \\ Aluno 2 \protect \\ Aluno 3},%
+}
+
+
+%\Advisor{%
+  %Title = {\AdvTtlSmp},%
+  %Name  = {\AdvNameSmp},%
+%}
+
+%% Texto
+\geometry{%
+  top      = 25mm,%
+  left     = 25mm,%
+  right    = 25mm,%
+  bottom   = 25mm,%
+  head     = 5mm,%
+  headsep  = 10mm,%
+  footskip = 15mm,%
+}
+\setlength{\parindent}{10mm}
+\newcommand*{\Maybe@AddPeriod}[1]{\ifblank{#1}{}{#1\@addpunct{.}}}
+\newcommand*{\NewLine}{\protect\\}
+\newcommand*{\LessSloppy}{%
+  \setlength{\emergencystretch}{3em}%
+  \hbadness\@M%
+}
+\csgappto{Centering}{%
+  \sloppy%
+  \hbadness\@M%
+  \hyphenpenalty\@M%
+  \exhyphenpenalty\@M%
+}
+\csletcs{resetpagenumbering}{pagenumbering}
+\newcommand*{\noresetpagenumbering}[1]{\csgdef{thepage}{\csuse{@#1}\c@page}}
+\renewcommand*{\pagenumbering}{\@ifstar{\noresetpagenumbering}{\resetpagenumbering}}
+\newrobustcmd*{\ENLang}[1]{\foreignlanguage{english}{#1}}
+\newrobustcmd*{\ENLangIt}[1]{\foreignlanguage{english}{\textit{#1}}}
+\iflanguage{english}{}{\frenchspacing}
+\ifboolexpr{ bool {xetex} or test {\ifdraft} }{\LessSloppy}{}
+
+%% Cabeçalhos e rodapés
+\renewcommand*{\headrule}{}
+\fancypagestyle{TitlePage}{%
+  \fancyhf{}%
+  \ifbool{@DocLicCC}{%
+    \fancyfoot[L]{%
+      \footnotesize%
+      \parbox[b][4.5ex][t]{12.9ex}{\CCLicLogo}\hskip1ex%
+      \parbox[b][4.5ex][t]{\textwidth-13.9ex}{\sffamily\CCLicDescr}%
+    }%
+  }{}%
+}
+\fancyhf{}
+\fancyhead[R]{\small\sffamily\thepage}
+\pagestyle{fancy}
+
+%% Seções e subseções
+\setcounter{secnumdepth}{0}
+\renewcommand*{\Sectionformat}[2]{%
+  \ifnumequal{#2}{1}{%
+    \expandafter\MakeUppercase%
+  }{%
+    \expandafter\@firstofone%
+  }%
+  {#1}%
+}
+\renewcommand*{\section}{\@startsection{section}{1}{\z@}{-\baselineskip}{\baselineskip}{\bfseries}}
+\renewcommand*{\subsection}{\@startsection{subsection}{2}{\z@}{-1em}{-0.5em}{\bfseries\Maybe@AddPeriod}}
+\renewcommand*{\subsubsection}{\@startsection{subsubsection}{3}{\z@}{-1em}{-0.5em}{\bfseries\Maybe@AddPeriod}}
+\renewcommand*{\paragraph}{\@startsection{paragraph}{4}{\z@}{-1em}{-0.5em}{\bfseries\Maybe@AddPeriod}}
+\renewcommand*{\subparagraph}{\@startsection{subparagraph}{5}{\z@}{-1em}{-0.5em}{\bfseries\Maybe@AddPeriod}}
+
+%% Listas de itens
+\AtBeginEnvironment{itemize}{\LessSloppy}
+\AtBeginEnvironment{enumerate}{\LessSloppy}
+\setlist{%
+  topsep     = \z@,%
+  partopsep  = \z@,%
+  parsep     = \z@,%
+  itemsep    = \z@,%
+  leftmargin = *,%
+  align      = left,%
+}
+\setlist[1]{labelindent = \parindent}
+\newcommand*{\alphsect}{\alph*^^29}
+\renewcommand*{\@listI}{%
+  \leftmargin\leftmargini%
+  \topsep\z@%
+  \parsep\z@%
+  \itemsep\z@%
+}
+
+%% Notas de rodapé
+\setlength{\footnotemargin}{1em}
+\csletcs{old@footnotetext}{@footnotetext}
+\renewcommand*{\@footnotetext}[1]{\old@footnotetext{\Maybe@AddPeriod{#1}}}
+\renewcommand*{\footnoterule}{\kern-3pt\hrule\@width50mm\kern2.5pt}
+
+%% Citação direta: de até 3 linhas e com mais de 3 linhas
+\NewDocumentCommand{\Citation}{ O{\languagename} m m O{} }{%
+  \hyphenblockquote{#1}[%
+    \ifblank{#2}{}{\ignorespaces#2\unskip}%
+    \ifblank{#4}{}{\footnote{\ignorespaces#4\unskip}}%
+  ][]{\ifcsstring{languagename}{#1}{\ignorespaces#3\unskip}{{\itshape\ignorespaces#3\unskip}}}%
+}
+\NewDocumentEnvironment{DisplayCitation}{ O{\languagename} m O{} }{%
+  \begin{hyphendisplayquote}{#1}[%
+    \ifblank{#2}{}{\ignorespaces#2\unskip}%
+    \ifblank{#3}{}{\footnote{\ignorespaces#3\unskip}}\@addpunct{.}%
+  ][]%
+  \begingroup%
+  \ifcsstring{languagename}{#1}{}{\itshape}%
+}{%
+  \endgroup%
+  \end{hyphendisplayquote}%
+}
+\newenvironment*{DisplayCitationBlock}{%
+  \vskip6pt%
+  \list{}%
+  \item%
+  \LessSloppy%
+  \ifbool{@twocolumn}{%
+    \addtolength{\leftskip}{18mm}%
+  }{%
+    \addtolength{\leftskip}{40mm}%
+  }%
+  \small%
+}{%
+  \endlist%
+  \vskip6pt%
+}
+\renewcommand*{\mkcitation}[1]{\ifblank{#1}{}{ #1}}
+\SetBlockEnvironment{DisplayCitationBlock}
+
+%% Equações
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{-6pt}%
+  \setlength{\belowdisplayskip}{6pt}%
+  \setlength{\abovedisplayshortskip}{\abovedisplayskip}%
+  \setlength{\belowdisplayshortskip}{\belowdisplayskip}%
+}
+
+%% Objetos flutuantes: figuras, tabelas, etc.
+\graphicspath{{./Figures/}{./Logos/}}
+\setlength{\textfloatsep}{12pt}
+\setlength{\intextsep}{12pt}
+\setlength{\floatsep}{12pt}
+\setlength{\aboverulesep}{\z@}
+\setlength{\belowrulesep}{\z@}
+\setlength{\extrarowheight}{0.25ex}
+\setlength{\arrayrulewidth}{\lightrulewidth}
+\newcolumntype{?}[1]{!{\vrule\@width\ifblank{#1}{\heavyrulewidth}{#1}}}
+\newcolumntype{e}[1]{@{\extracolsep{\ifblank{#1}{\fill}{#1}}}}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{Z}{>{\raggedleft\arraybackslash}X}
+\csgappto{@floatboxreset}{\centering}
+%%%% Legendas
+\captionsetup{%
+  labelsep      = period,%
+  justification = centerlast,%
+  skip          = 12pt,%
+}
+
+%% Citações e referências
+\DeclareLanguageMapping{brazilian}{brazilian-abnt}
+\DeclareLanguageMapping{english}{english-abnt}
+\DeclareLanguageMappingSuffix{}
+\NewBibliographyString{%
+  sheettotal,%
+  sheettotals,%
+  sineloco,%
+  sinenomine,%
+}
+\DefineBibliographyStrings{brazilian}{%
+  sineloco    = {s\adddot~l\adddot},%
+  sinenomine  = {s\adddot~n\adddot},%
+}
+\DefineBibliographyStrings{english}{%
+  sheettotal  = {s\adddot},%
+  sheettotals = {s\adddot},%
+  sineloco    = {s\adddot~l\adddot},%
+  sinenomine  = {s\adddot~n\adddot},%
+}
+\xpatchbibmacro{in:}{%
+  \printtext{\bibstring{in}\intitlepunct}%
+}{%
+  \printtext{\mkbibemph{\bibstring{in}}\intitlepunct}%
+}{}{}
+\xpatchbibmacro{name:andothers}{%
+  \printdelim{andothersdelim}\bibstring{andothers}%
+}{%
+  \printdelim{andothersdelim}\mkbibemph{\bibstring{andothers}}%
+}{}{}
+\xpatchbibmacro{location}{%
+  \printtext[brackets]{\bibstring{sineloco}}%
+}{%
+  \printtext[brackets]{\mkbibemph{\bibstring{sineloco}}}%
+}{}{}
+\xpatchbibmacro{venue}{%
+  \printtext[brackets]{\bibstring{sineloco}}%
+}{%
+  \printtext[brackets]{\mkbibemph{\bibstring{sineloco}}}%
+}{}{}
+\xpatchbibmacro{publisher}{%
+  \printtext[brackets]{\bibstring{sinenomine}}%
+}{%
+  \printtext[brackets]{\mkbibemph{\bibstring{sinenomine}}}%
+}{}{}
+\xpatchbibmacro{publisher+location+date}{%
+  \printtext[brackets]{%
+    \bibstring{sineloco}%
+    \setunit{\addcolon\addnbspace}%
+    \bibstring{sinenomine}%
+  }%
+}{%
+  \printtext[brackets]{%
+    \mkbibemph{\bibstring{sineloco}}%
+    \setunit{\addcolon\addnbspace}%
+    \mkbibemph{\bibstring{sinenomine}}%
+  }%
+}{}{}
+\xpatchbibmacro{publisher+location+issue+date}{%
+  \printtext[brackets]{%
+    \bibstring{sineloco}%
+    \setunit{\addcolon\addnbspace}%
+    \bibstring{sinenomine}%
+  }%
+}{%
+  \printtext[brackets]{%
+    \mkbibemph{\bibstring{sineloco}}%
+    \setunit{\addcolon\addnbspace}%
+    \mkbibemph{\bibstring{sinenomine}}%
+  }%
+}{}{}
+\ifbool{@ABNTCitNRB}{%
+  \csletcs{multinamedelim}{multinamedelimorig}%
+  \csletcs{finalnamedelim}{finalnamedelimorig}%
+}{%
+  \xpatchbibmacro{textcite}{%
+    \ifnumequal{\value{textcitecount}}{\value{textcitetotal}-1}{%
+      \finalnamedelim%
+    }{%
+      \multinamedelim%
+    }%
+  }{%
+    \textcitedelim%
+  }{}{}%
+}
+\ifbool{@ABNTCitNSB}{%
+  \global\csletcs{mkbibparens}{mkbibbrackets}%
+  \global\csletcs{bibopenparen}{bibopenbracket}%
+  \global\csletcs{bibcloseparen}{bibclosebracket}%
+  \DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}%
+}{}
+\ifbool{@BibURLIcon}{%
+  \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace\href{#1}{\LinkIcon}}%
+}{%
+  \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace\url{#1}}%
+}
+\defbibheading{bibliography}[\refname]{%
+  \section{#1}%
+  \label{sect:ref}%
+}
+
+%% Capa
+\newcommand*{\CoverPage}{%
+  \pdfbookmark[1]{\CvrPageName}{cvrpage}%
+  \pagenumbering{Roman}%
+  \thispagestyle{empty}%
+  \begingroup%
+  \centering%
+  \begin{minipage}[c][][c]{35mm}%
+  \includegraphics[width = 35mm]{utfpr}%
+  \end{minipage}%
+  \hskip6pt{\color{UTFPRBlack}\vrule\@width0.5pt}\hskip6pt%
+  \begin{minipage}[c][][c]{120mm}%
+  {\small\sffamily\MECName}\par%
+  {\small\sffamily\bfseries\UTFPRName}\par%
+  {\small\sffamily\PROPPGName}%
+  \end{minipage}%
+  \vskip2pt%
+  {\color{UTFPRBlack}\hrule\@height0.5pt}\vskip\p@%
+  {\color{UTFPRYellow}\hrule\@height0.5pt}\vskip44.5mm%
+  {\XVIptFontSize\bfseries\MakeUppercase\RprtStgName}\vskip44.5mm%
+  \begin{Center}%
+  {\XVIptFontSize\bfseries\@title}\vskip\baselineskip%
+  {\large\bfseries\LnkdPrjcCall}\vskip\baselineskip%
+  {\large\bfseries\PrjcTtl}%
+  \end{Center}%
+  \vfill%
+  {\bfseries\Stdt@Name}%
+  %\ifdefvoid{\Stdt@Email}{}{~\Stdt@Email}%
+  %\ifdefvoid{\Stdt@ORCID}{}{~\Stdt@ORCID}\vskip6pt%
+  {\bfseries\Stdt@Mode}\vskip6pt%
+  {\bfseries\Stdt@Course}\vskip6pt%
+  {\bfseries\InitDateCall\space\InitDate}\vskip6pt%
+  {\bfseries\Adv@Title\space\Adv@Name}%
+  %\ifdefvoid{\Adv@Email}{}{~\Adv@Email}%
+  %\ifdefvoid{\Adv@ORCID}{}{~\Adv@ORCID}\vfill%
+  \KnwlAreaCall\space\KnwlArea\vfill%
+  \MakeUppercase{Campus \CmpsName, \@date}\par%
+  \endgroup%
+  \clearpage%
+}
+
+%% Folha de rosto
+\newcommand*{\TitlePage}{%
+  \pdfbookmark[1]{\TtlPageName}{ttlpage}%
+  \pagenumbering{roman}%
+  \thispagestyle{TitlePage}%
+  \begingroup%
+  \centering%
+  {\bfseries\MakeUppercase\Stdt@Name}\vskip6pt%
+  {\bfseries\MakeUppercase\Adv@Name}\vskip103mm%
+  \begin{Center}%
+  \bfseries\MakeUppercase\@title%
+  \end{Center}%
+  \vfill%
+  \begin{flushright}%
+  \parbox{0.5\textwidth}{\RprtDscr}%
+  \end{flushright}%
+  \vfill%
+  \MakeUppercase{\CmpsName, \@date}\par%
+  \endgroup%
+  \clearpage%
+}
+
+%% Sumário
+\setcounter{tocdepth}{2}
+\setlength{\cftaftertoctitleskip}{\baselineskip}
+\setlength{\cftsecindent}{\z@}
+\setlength{\cftsubsecindent}{\cftsecindent}
+\setlength{\cftsubsubsecindent}{\cftsecindent}
+\setlength{\cftparaindent}{\cftsecindent}
+\setlength{\cftsubparaindent}{\cftsecindent}
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{\cftsecnumwidth}
+\setlength{\cftsubsubsecnumwidth}{\cftsecnumwidth}
+\setlength{\cftparanumwidth}{\cftsecnumwidth}
+\setlength{\cftsubparanumwidth}{\cftsecnumwidth}
+\csletcs{old@contentsline}{contentsline}
+\renewcommand*{\contentsline}[3]{%
+  \ifcsequal{l@#1}{l@section}{%
+    \expandafter\@firstoftwo%
+  }{%
+    \expandafter\@secondoftwo%
+  }%
+  {\old@contentsline{#1}{\MakeUppercase{#2}}{#3}}%
+  {\old@contentsline{#1}{#2}{#3}}%
+}
+\renewcommand*{\cfttoctitlefont}{\hfill\bfseries\MakeUppercase}
+\renewcommand*{\cftaftertoctitle}{\hfill}
+\renewcommand*{\cftsecdotsep}{\cftdotsep}
+\renewcommand*{\cftsubsecdotsep}{\cftsecdotsep}
+\renewcommand*{\cftsubsubsecdotsep}{\cftsecdotsep}
+\renewcommand*{\cftparadotsep}{\cftsecdotsep}
+\renewcommand*{\cftsubparadotsep}{\cftsecdotsep}
+\renewcommand*{\cftsubsecfont}{\cftsecfont}
+\renewcommand*{\cftsubsubsecfont}{\cftsecfont}
+\renewcommand*{\cftparafont}{\cftsecfont}
+\renewcommand*{\cftsubparafont}{\cftsecfont}
+\renewcommand*{\cftsubsecleader}{\cftsecleader}
+\renewcommand*{\cftsubsubsecleader}{\cftsecleader}
+\renewcommand*{\cftparaleader}{\cftsecleader}
+\renewcommand*{\cftsubparaleader}{\cftsecleader}
+\renewcommand*{\cftsubsecpagefont}{\cftsecpagefont}
+\renewcommand*{\cftsubsubsecpagefont}{\cftsecpagefont}
+\renewcommand*{\cftparapagefont}{\cftsecpagefont}
+\renewcommand*{\cftsubparapagefont}{\cftsecpagefont}
+\csgappto{@cfttocstart}{\pdfbookmark[1]{\contentsname}{toc}}
+\csgappto{@cfttocfinish}{\clearpage}
+\tocloftpagestyle{empty}
+
+%% Elementos pre-textuais: capa, folha de rosto e sumário
+\renewcommand*{\@maketitle}{%
+  \CoverPage%
+  \TitlePage%
+}
+\AtBeginDocument{%
+  \author{\Stdt@Name, \Adv@Name}%
+  \hypersetup{%
+    pdftitle   = {\@title},%
+    pdfauthor  = {\@author},%
+    pdfsubject = {\RprtTypeName},%
+  }%
+  \maketitle%
+  \tableofcontents%
+  \pagenumbering*{arabic}%
+}
+
