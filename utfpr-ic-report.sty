@@ -274,7 +274,7 @@
   %\ifblank{#1}{}{\renewcommand*{\InitDate}{#1}}%
   %\ifblank{#2}{}{\renewcommand*{\InitType}{#2}}%
 %}
-%\newcommand*{\KnwlArea}{\KnwlAreaSmp}
+\newcommand*{\KnwlArea}{\KnwlAreaSmp}
 \newcommand*{\KnowledgeArea}[2][]{%
   \ifblank{#1}{%
     \ifblank{#2}{}{\renewcommand*{\KnwlArea}{#2}}%
@@ -284,7 +284,7 @@
 }
 \newcommand*{\CmpsName}{\CmpsNameSmp}
 \newcommand*{\Campus}[1]{\ifblank{#1}{}{\renewcommand*{\CmpsName}{#1}}}
-%\newcommand*{\PrjcTtl}{\PrjcTtlSmp}
+\newcommand*{\PrjcTtl}{\PrjcTtlSmp}
 \newcommand*{\ProjectTitle}[1]{\ifblank{#1}{}{\renewcommand*{\PrjcTtl}{#1}}}
 \csletcs{Title}{title}
 \csletcs{Date}{date}
@@ -619,21 +619,21 @@
   {\color{UTFPRYellow}\hrule\@height0.5pt}\vskip44.5mm%
   {\XVIptFontSize\bfseries\MakeUppercase\RprtStgName}\vskip44.5mm%
   \begin{Center}%
-  %{\XVIptFontSize\bfseries\@title}\vskip\baselineskip%
- % {\large\bfseries\LnkdPrjcCall}\vskip\baselineskip%
- % {\large\bfseries\PrjcTtl}%
- % \end{Center}%
- % \vfill%
-  %{\bfseries\Stdt@Name}%
+  {\XVIptFontSize\bfseries\@title}\vskip\baselineskip%
+  {\large\bfseries\LnkdPrjcCall}\vskip\baselineskip%
+  {\large\bfseries\PrjcTtl}%
+  \end{Center}%
+  \vfill%
+  {\bfseries\Stdt@Name}%
   %\ifdefvoid{\Stdt@Email}{}{~\Stdt@Email}%
   %\ifdefvoid{\Stdt@ORCID}{}{~\Stdt@ORCID}\vskip6pt%
-  %{\bfseries\Stdt@Mode}\vskip6pt%
-  %{\bfseries\Stdt@Course}\vskip6pt%
-  %{\bfseries\InitDateCall\space\InitDate}\vskip6pt%
-  %{\bfseries\Adv@Title\space\Adv@Name}%
+  {\bfseries\Stdt@Mode}\vskip6pt%
+  {\bfseries\Stdt@Course}\vskip6pt%
+  {\bfseries\InitDateCall\space\InitDate}\vskip6pt%
+  {\bfseries\Adv@Title\space\Adv@Name}%
   %\ifdefvoid{\Adv@Email}{}{~\Adv@Email}%
   %\ifdefvoid{\Adv@ORCID}{}{~\Adv@ORCID}\vfill%
- % \KnwlAreaCall\space\KnwlArea\vfill%
+  \KnwlAreaCall\space\KnwlArea\vfill%
   \MakeUppercase{Campus \CmpsName, \@date}\par%
   \endgroup%
   \clearpage%
@@ -716,7 +716,7 @@
   \author{\Stdt@Name, \Adv@Name}%
   \hypersetup{%
     pdftitle   = {\@title},%
-   % pdfauthor  = {\@author},%
+    pdfauthor  = {\@author},%
     pdfsubject = {\RprtTypeName},%
   }%
   \maketitle%
