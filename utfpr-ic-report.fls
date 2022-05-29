@@ -1326,18 +1326,43 @@ INPUT .\Figures\1.png
 INPUT .\Figures\1.png
 INPUT .\Figures\1.png
 INPUT .\Figures\1.png
+INPUT D:\Program Files\MiKTeX\tex\latex\newtx\ts1ntxtlf.fd
+INPUT D:\Program Files\MiKTeX\tex\latex\newtx\ts1ntxtlf.fd
+INPUT D:\Program Files\MiKTeX\tex\latex\newtx\ts1ntxtlf.fd
+INPUT D:\Program Files\MiKTeX\tex\latex\newtx\ts1ntxtlf.fd
+INPUT D:\Program Files\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
+INPUT .\Figures\grafico.png
+INPUT .\Figures\grafico.png
+INPUT Figures\grafico.png
+INPUT .\Figures\grafico.png
+INPUT .\Figures\grafico.png
+INPUT .\Figures\grafico.png
+INPUT .\Figures\grafico.png
+INPUT .\Figures\imagem.PNG
+INPUT .\Figures\imagem.PNG
+INPUT Figures\imagem.PNG
+INPUT .\Figures\imagem.PNG
+INPUT .\Figures\imagem.PNG
+INPUT .\Figures\imagem.PNG
+INPUT .\Figures\imagem.PNG
+INPUT D:\Program Files\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-t1.tfm
 INPUT utfpr-ic-report.aux
 INPUT .\utfpr-ic-report.out
 INPUT .\utfpr-ic-report.out
 INPUT utfpr-ic-report.run.xml
 OUTPUT utfpr-ic-report.run.xml
 INPUT D:\Program Files\MiKTeX\fonts\enc\dvips\newtx\ntx-ec-tlf.enc
+INPUT D:\Program Files\MiKTeX\fonts\enc\dvips\tex-gyre\q-ts1.enc
 INPUT D:\Program Files\MiKTeX\fonts\enc\dvips\tex-gyre\q-ec.enc
 INPUT D:\Program Files\MiKTeX\fonts\type1\public\tex-gyre\qhvb.pfb
 INPUT D:\Program Files\MiKTeX\fonts\type1\public\tex-gyre\qhvb.pfb
 INPUT D:\Program Files\MiKTeX\fonts\type1\public\tex-gyre\qhvr.pfb
 INPUT D:\Program Files\MiKTeX\fonts\type1\public\tex-gyre\qhvr.pfb
+INPUT D:\Program Files\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
+INPUT D:\Program Files\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
 INPUT D:\Program Files\MiKTeX\fonts\type1\public\newtx\ztmb.pfb
 INPUT D:\Program Files\MiKTeX\fonts\type1\public\newtx\ztmb.pfb
 INPUT D:\Program Files\MiKTeX\fonts\type1\public\newtx\ztmr.pfb
 INPUT D:\Program Files\MiKTeX\fonts\type1\public\newtx\ztmr.pfb
+INPUT D:\Program Files\MiKTeX\fonts\type1\public\newtx\ztmri.pfb
+INPUT D:\Program Files\MiKTeX\fonts\type1\public\newtx\ztmri.pfb

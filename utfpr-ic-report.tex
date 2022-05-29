@@ -54,24 +54,33 @@ Este projeto tem como objetivo auxiliar qualquer empresa que atue em area indust
 \caption{Diagrama}%
 \end{figure}
 
-A aplicacao que abordara o 
-- Solicitacao de servico
-- equipamentos/ferramentas a serem utilizadas
-- um dash board que mostra o servico contendo
-    - custo previsto
-    - equipamento
-    - prioridade 
-    - data de inicio/termino
-    - preco final da manutencao
+O aplicativo abordará 
+\begin{itemize}
+    \item Agenda para auxiliar os funcionários
+    \item Solicitação de serviço
+    \item equipamentos/ferramentas a serem utilizadas
+    \item uma dashboard que mostra o serviço contendo:
+    \begin{itemize}
+    \item custo previsto
+    \item equipamento
+    \item prioridade 
+    \item data de inicio/termino
+    \item preço final da manutenção
+    \item funcionários na manutenção
+    \end{itemize}    
+\end{itemize}
     
 
 \section{Justificativa}%
 Informatizar a gestão da manutenção tem suas vantagens, como por exemplo, simplificar o cotidiano dos funcionários e facilitar a análise de dados, por estarem organizados e presentes em um só lugar. Mesmo assim, muitas empresas de pequeno ou médio porte ainda não utilizam da tecnologia para obter os benefícios que ela é capaz de oferecer. Portanto, pelo que já foi descrito e pela dificuldade em se obter um produto bom que atenda as necessidades básicas da manutenção de forma gratuita ou de baixo custo, faremos um aplicativo que ajude essa parte da indústria que ainda está no vazio tecnológico, queremos ajudar a entrar na industria 4.0, podendo ser das areas agricula, construcao, saude, mineracao, producao.
 
-- Keepfy
-- Fracttal
-- infraspeak
-- Fluix
+\subsection{Produtos Similares}
+\begin{enumerate}
+    \item Keepfy
+    \item Fracttal
+    \item Infraspeak
+    \item Fluix
+\end{enumerate}
 
 %levantar potenciais usuarios
 %falar das empresas com produtos similares econtextualizar quais as inovações do serviço/produto proposto no trabalho, como diferenciais que justifiquem o seu desenvolvimento (preço por exemplo, tecnologia nacional, etc.)
@@ -87,7 +96,7 @@ Para criação do aplicativo, uma fábrica de compressores do interior de São P
 
 \subsection{Métodos:}%
 O front-end será feito com a linguagem TypeScript utilizando o framework React Native que possibilita uma versatilidade no desenvolvimento sendo compatível com iOS e Android.
-O back-end Será utilizado o farebase. 
+O Google Firebase será a ferramenta utilizada como banco de dados(substituindo o MySQL definido anteriormente). 
 Para organizar a produtividade do grupo, será utilizado o Trello para gerenciar as tarefas a serem feitas, GitHub para compartilhamento e versionamento do aplicativo. 
 
 
@@ -99,11 +108,23 @@ Para organizar a produtividade do grupo, será utilizado o Trello para gerenciar
 
 
 \section{Cronograma}%
+A realização das atividades do projeto foi definida da seguinte forma:
 
+\begin{figure}[!htb]
+\includegraphics[width = 0.95\linewidth]{Figures/grafico.png}
+\caption{Gráfico de tarefas}
+\end{figure}
+\begin{figure}[!htb]
+\includegraphics[width = 0.95\linewidth]{Figures/imagem.PNG}
+\caption{Planejamento}
+\end{figure}
 
 \section{Referências}%
 [01] A LOGÍSTICA NA MANUTENÇÃO: QUAIS OS TIPOS. \textbf{Portalic}, 2019. Disponível em: <http://www.portalic.com.br/blog/sua-industria/a-logistica-na-manutencao-quais-os-tipos/>. Acesso em: 10, março de 2022.\par
 [02] GRÁFICO DE GANTT: O QUE É, COMO FUNCIONA E COMO MONTAR O SEU. \textbf{Nomus}, 2021. Disponível em: <https://www.nomus.com.br/blog-industrial/grafico-de-gantt/>. Acesso em: 13, março de 2022.
+[03] LOGISTICS MANAGEMENT: \textit{Annual Maintenance Repair and Operations (MRO) Survey 2018: Spending on the rise}. Acesso em: 14 de março 2022.\par
+[04] INFRASPEAK: Estatísticas de manutenção [2018-2021]: desafios, tendências e métricas. Disponível em: <https://blog.infraspeak.com/pt-br/estatisticas-de-manutencao/> Acesso em 14 de março de 2022.\par
+[05]\textit{Predictive Maintenance 4.0 Beyond the hype: PdM 4.0 delivers results}. \textbf{PwC, Mainnovation}.Disponível em: <https://www.pwc.be/en/documents/20180926-pdm40-beyond-the-hype-report.pdf>. Acesso em 20 de março de 2022.
 
 %% Fim do documento
 \end{document}

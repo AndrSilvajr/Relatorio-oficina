@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.28)  28 MAY 2022 16:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.28)  29 MAY 2022 14:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1375,9 +1375,28 @@ File: Figures/1.png Graphic file (type png)
 <use Figures/1.png>
 Package pdftex.def Info: Figures/1.png  used on input line 53.
 (pdftex.def)             Requested size: 432.48051pt x 155.71852pt.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 59.
+ (D:\Program Files\MiKTeX\tex/latex/newtx\ts1ntxtlf.fd
+File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
+)
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 12.0pt on input line 59.
  [3
 
- <./Figures/1.png>] [4] (utfpr-ic-report.aux
+ <./Figures/1.png>]
+<Figures/grafico.png, id=34, 1489.565pt x 760.8425pt>
+File: Figures/grafico.png Graphic file (type png)
+<use Figures/grafico.png>
+Package pdftex.def Info: Figures/grafico.png  used on input line 114.
+(pdftex.def)             Requested size: 432.48051pt x 220.90569pt.
+<Figures/imagem.PNG, id=35, 847.66687pt x 395.97937pt>
+File: Figures/imagem.PNG Graphic file (type png)
+<use Figures/imagem.PNG>
+Package pdftex.def Info: Figures/imagem.PNG  used on input line 118.
+(pdftex.def)             Requested size: 432.48051pt x 202.02536pt.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 12.0pt on input line 125.
+ [4] [5 <./Figures/grafico.png> <./Figures/imagem.PNG>] (utfpr-ic-report.aux
 Package cleveref Info: loaded `brazilian' language definitions on input line 21.
 )
 
@@ -1390,7 +1409,7 @@ Package rerunfilecheck Warning: File `utfpr-ic-report.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `utfpr-ic-report.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  F6EF4025236A308CBC69C636B7769892;556.
+(rerunfilecheck)             After:  6DCEC2ECA243C457FEE293A216512E10;625.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                utfpr-ic-report
@@ -1401,17 +1420,17 @@ Package logreq Info: Writing requests to 'utfpr-ic-report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34024 strings out of 478614
- 602332 string characters out of 2852937
- 1374218 words of memory out of 3000000
- 51646 multiletter control sequences out of 15000+600000
- 510693 words of font info for 97 fonts, out of 8000000 for 9000
+ 34101 strings out of 478614
+ 603673 string characters out of 2852937
+ 1377218 words of memory out of 3000000
+ 51697 multiletter control sequences out of 15000+600000
+ 514344 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,12n,131p,1722b,2655s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{D:/Program Files/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{D:/Program Files/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}<D:/Program Files/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><D:/Program Files/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><D:/Program Files/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><D:/Program Files/MiKTeX/fonts/type1/public/newtx/ztmr.pfb>
-Output written on utfpr-ic-report.pdf (5 pages, 232011 bytes).
+{D:/Program Files/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{D:/Program Files/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}{D:/Program Files/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}<D:/Program Files/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><D:/Program Files/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><D:/Program Files/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><D:/Program Files/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><D:/Program Files/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><D:/Program Files/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
+Output written on utfpr-ic-report.pdf (6 pages, 347556 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 500000)
- 19979 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 90 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 500000)
+ 24085 words of extra memory for PDF output out of 24883 (max. 10000000)
 
