@@ -4,7 +4,7 @@
   (generated)
   "utfpr-ic-report.bbl"
   "utfpr-ic-report.blg"
-["pdflatex"] 1653844544 "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" "utfpr-ic-report.pdf" "utfpr-ic-report" 1653844544
+["pdflatex"] 1653933472 "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" "utfpr-ic-report.pdf" "utfpr-ic-report" 1653933472
   "C:/Users/zzzan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1653766618 155103 69cfeae6c667b2a1ca4a4931a5318ad7 ""
   "C:/Users/zzzan/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1653766625 10242640 f259eb6bc06bcfcfb7d1fbcac9202e70 ""
   "D:/Program Files/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1639608697 2914 8283dfc24eaf1964346f843d7605c2b0 ""
@@ -182,16 +182,17 @@
   "D:/Program Files/MiKTeX/tex/latex/xstring/xstring.sty" 1626884962 123 a302f2c651a95033260db60e51527ae8 ""
   "D:/Program Files/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
   "Figures/1.png" 1653757785 17942 2c5c7c0dae87e25c325db70c08e67c17 ""
-  "Figures/grafico.png" 1653844095 56523 dd881c4c3bf844954c65501a58933de9 ""
-  "Figures/imagem.PNG" 1653844093 67206 83ce04e25539df4d822bf4af5947a977 ""
+  "Figures/t1.PNG" 1653929810 228063 041c23a3430cdf367b1c84c8ff103acf ""
+  "Figures/t2.PNG" 1653930235 229261 baa10035b1a28f4139116995b3b5f584 ""
+  "Figures/t3.PNG" 1653929987 85218 257713da2b3f7664196e463936e7b510 ""
   "Logos//utfpr.png" 1653757785 95575 1d8ad07f77f3fd898432c08b084de1d2 ""
-  "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" 1653844526 8148 3c68e3272ae30a843d2e07832272d8f8 ""
-  "utfpr-ic-report.aux" 1653844544 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" 1653933464 9330 1f784428a407a805e797e0c7021c8385 ""
+  "utfpr-ic-report.aux" 1653933472 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "utfpr-ic-report.bbl" 0 -1 0 "biber utfpr-ic-report"
   "utfpr-ic-report.out" 0 -1 0 "pdflatex"
   "utfpr-ic-report.run.xml" 0 -1 0 "pdflatex"
   "utfpr-ic-report.sty" 1653767021 25639 6d530a338dc3a8690ff6dc21a920bd97 ""
-  "utfpr-ic-report.tex" 1653844526 8148 3c68e3272ae30a843d2e07832272d8f8 ""
+  "utfpr-ic-report.tex" 1653933464 9330 1f784428a407a805e797e0c7021c8385 ""
   "utfpr-ic-report.toc" 0 -1 0 "pdflatex"
   (generated)
   "utfpr-ic-report.aux"

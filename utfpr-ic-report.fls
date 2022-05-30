@@ -1331,20 +1331,27 @@ INPUT D:\Program Files\MiKTeX\tex\latex\newtx\ts1ntxtlf.fd
 INPUT D:\Program Files\MiKTeX\tex\latex\newtx\ts1ntxtlf.fd
 INPUT D:\Program Files\MiKTeX\tex\latex\newtx\ts1ntxtlf.fd
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
-INPUT .\Figures\grafico.png
-INPUT .\Figures\grafico.png
-INPUT Figures\grafico.png
-INPUT .\Figures\grafico.png
-INPUT .\Figures\grafico.png
-INPUT .\Figures\grafico.png
-INPUT .\Figures\grafico.png
-INPUT .\Figures\imagem.PNG
-INPUT .\Figures\imagem.PNG
-INPUT Figures\imagem.PNG
-INPUT .\Figures\imagem.PNG
-INPUT .\Figures\imagem.PNG
-INPUT .\Figures\imagem.PNG
-INPUT .\Figures\imagem.PNG
+INPUT .\Figures\t1.PNG
+INPUT .\Figures\t1.PNG
+INPUT Figures\t1.PNG
+INPUT .\Figures\t1.PNG
+INPUT .\Figures\t1.PNG
+INPUT .\Figures\t1.PNG
+INPUT .\Figures\t1.PNG
+INPUT .\Figures\t2.PNG
+INPUT .\Figures\t2.PNG
+INPUT Figures\t2.PNG
+INPUT .\Figures\t2.PNG
+INPUT .\Figures\t2.PNG
+INPUT .\Figures\t2.PNG
+INPUT .\Figures\t2.PNG
+INPUT .\Figures\t3.PNG
+INPUT .\Figures\t3.PNG
+INPUT Figures\t3.PNG
+INPUT .\Figures\t3.PNG
+INPUT .\Figures\t3.PNG
+INPUT .\Figures\t3.PNG
+INPUT .\Figures\t3.PNG
 INPUT D:\Program Files\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-t1.tfm
 INPUT utfpr-ic-report.aux
 INPUT .\utfpr-ic-report.out
