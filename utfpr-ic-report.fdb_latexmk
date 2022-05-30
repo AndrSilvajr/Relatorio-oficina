@@ -4,7 +4,7 @@
   (generated)
   "utfpr-ic-report.bbl"
   "utfpr-ic-report.blg"
-["pdflatex"] 1653950435 "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" "utfpr-ic-report.pdf" "utfpr-ic-report" 1653950435
+["pdflatex"] 1653951341 "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" "utfpr-ic-report.pdf" "utfpr-ic-report" 1653951341
   "C:/Users/zzzan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1653766618 155103 69cfeae6c667b2a1ca4a4931a5318ad7 ""
   "C:/Users/zzzan/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1653766625 10242640 f259eb6bc06bcfcfb7d1fbcac9202e70 ""
   "D:/Program Files/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1639608697 2914 8283dfc24eaf1964346f843d7605c2b0 ""
@@ -114,6 +114,7 @@
   "D:/Program Files/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "D:/Program Files/MiKTeX/tex/latex/etoolbox/etoolbox.sty" 1601897756 46845 3b58f70c6e861a13d927bff09d35ecbc ""
   "D:/Program Files/MiKTeX/tex/latex/fancyhdr/fancyhdr.sty" 1653469235 17280 7856508378dfe40ed74280f5b81e31b6 ""
+  "D:/Program Files/MiKTeX/tex/latex/float/float.sty" 1469023953 6916 16d2656a1984957e674b149555f1ea1d ""
   "D:/Program Files/MiKTeX/tex/latex/fontawesome5/fontawesome5-generic-helper.sty" 1651500229 1796 6d3390e7a3f2a0f63ce89532aa30ac20 ""
   "D:/Program Files/MiKTeX/tex/latex/fontawesome5/fontawesome5-mapping.def" 1651500229 107808 07e47606922c76b1824e149c54155c4c ""
   "D:/Program Files/MiKTeX/tex/latex/fontawesome5/fontawesome5.sty" 1651500229 8112 16dbb19fca3f2df864fea49874356f35 ""
@@ -187,13 +188,13 @@
   "Figures/t2.PNG" 1653930235 229261 baa10035b1a28f4139116995b3b5f584 ""
   "Figures/t3.PNG" 1653929987 85218 257713da2b3f7664196e463936e7b510 ""
   "Logos//utfpr.png" 1653757785 95575 1d8ad07f77f3fd898432c08b084de1d2 ""
-  "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" 1653950407 10559 4e897578e1d11811ed3106183d4884f3 ""
-  "utfpr-ic-report.aux" 1653950435 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" 1653950692 10574 d2d0428d17afab82c130a259d88bac2d ""
+  "utfpr-ic-report.aux" 1653951341 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "utfpr-ic-report.bbl" 0 -1 0 "biber utfpr-ic-report"
   "utfpr-ic-report.out" 0 -1 0 "pdflatex"
   "utfpr-ic-report.run.xml" 0 -1 0 "pdflatex"
   "utfpr-ic-report.sty" 1653767021 25639 6d530a338dc3a8690ff6dc21a920bd97 ""
-  "utfpr-ic-report.tex" 1653950407 10559 4e897578e1d11811ed3106183d4884f3 ""
+  "utfpr-ic-report.tex" 1653950692 10574 d2d0428d17afab82c130a259d88bac2d ""
   "utfpr-ic-report.toc" 0 -1 0 "pdflatex"
   (generated)
   "utfpr-ic-report.aux"

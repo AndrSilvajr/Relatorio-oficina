@@ -6,5 +6,5 @@
 \contentsline {subsection}{Materiais:}{4}{section*.6}%
 \contentsline {subsection}{Métodos:}{4}{section*.7}%
 \contentsline {section}{Trabalho em andamento}{4}{section*.8}%
-\contentsline {section}{Cronograma}{4}{section*.11}%
+\contentsline {section}{Cronograma}{6}{section*.11}%
 \contentsline {section}{Referências}{6}{section*.13}%
