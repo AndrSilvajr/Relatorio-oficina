@@ -4,7 +4,7 @@
   (generated)
   "utfpr-ic-report.bbl"
   "utfpr-ic-report.blg"
-["pdflatex"] 1653945770 "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" "utfpr-ic-report.pdf" "utfpr-ic-report" 1653945770
+["pdflatex"] 1653950435 "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" "utfpr-ic-report.pdf" "utfpr-ic-report" 1653950435
   "C:/Users/zzzan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1653766618 155103 69cfeae6c667b2a1ca4a4931a5318ad7 ""
   "C:/Users/zzzan/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1653766625 10242640 f259eb6bc06bcfcfb7d1fbcac9202e70 ""
   "D:/Program Files/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1639608697 2914 8283dfc24eaf1964346f843d7605c2b0 ""
@@ -187,13 +187,13 @@
   "Figures/t2.PNG" 1653930235 229261 baa10035b1a28f4139116995b3b5f584 ""
   "Figures/t3.PNG" 1653929987 85218 257713da2b3f7664196e463936e7b510 ""
   "Logos//utfpr.png" 1653757785 95575 1d8ad07f77f3fd898432c08b084de1d2 ""
-  "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" 1653945746 10094 2a8ea7eb59501b797c24aea95ae63c78 ""
-  "utfpr-ic-report.aux" 1653945770 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "d:/GitHub/Relatorio-oficina/utfpr-ic-report.tex" 1653950407 10559 4e897578e1d11811ed3106183d4884f3 ""
+  "utfpr-ic-report.aux" 1653950435 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "utfpr-ic-report.bbl" 0 -1 0 "biber utfpr-ic-report"
   "utfpr-ic-report.out" 0 -1 0 "pdflatex"
   "utfpr-ic-report.run.xml" 0 -1 0 "pdflatex"
   "utfpr-ic-report.sty" 1653767021 25639 6d530a338dc3a8690ff6dc21a920bd97 ""
-  "utfpr-ic-report.tex" 1653945746 10094 2a8ea7eb59501b797c24aea95ae63c78 ""
+  "utfpr-ic-report.tex" 1653950407 10559 4e897578e1d11811ed3106183d4884f3 ""
   "utfpr-ic-report.toc" 0 -1 0 "pdflatex"
   (generated)
   "utfpr-ic-report.aux"
