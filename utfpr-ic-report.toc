@@ -2,10 +2,9 @@
 \contentsline {section}{Introdução}{3}{section*.1}%
 \contentsline {section}{Objetivos}{3}{section*.2}%
 \contentsline {section}{Justificativa}{4}{section*.4}%
-\contentsline {subsection}{Produtos Similares}{4}{section*.5}%
-\contentsline {section}{Materiais e Métodos}{4}{section*.6}%
-\contentsline {subsection}{Materiais:}{4}{section*.7}%
-\contentsline {subsection}{Métodos:}{4}{section*.8}%
-\contentsline {section}{Trabalho em andamento}{4}{section*.9}%
-\contentsline {section}{Cronograma}{4}{section*.13}%
-\contentsline {section}{Referências}{4}{section*.14}%
+\contentsline {section}{Materiais e Métodos}{4}{section*.5}%
+\contentsline {subsection}{Materiais:}{4}{section*.6}%
+\contentsline {subsection}{Métodos:}{4}{section*.7}%
+\contentsline {section}{Trabalho em andamento}{4}{section*.8}%
+\contentsline {section}{Cronograma}{5}{section*.12}%
+\contentsline {section}{Referências}{5}{section*.13}%
