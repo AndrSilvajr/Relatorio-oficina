@@ -40,11 +40,11 @@
 \begin{document}
 
 \section{Introdução}%
-As indústrias têm uma grande dependência de seu maquinário, se o mesmo ficar muito tempo parado a empresa tem menos produtividade. Para se evitar o mau funcionamento e a parada da fábrica, ao longo do tempo vem se criando vários métodos para corrigir e prevenir estes problemas, atualmente tem-se três formas de aplicação: corretiva, preventiva e preditiva. De maneira geral as logísticas de manutenção buscam otimizar o desempenho e a eficiência da máquina, a manutenção corretiva é voltada no conserto de peças com mau funcionamento ou quebradas onde se planeja ou não a manutenção do maquinário, já com mais planejamento a preventiva faz manutenções periodicamente visando o tempo de vida das peças, junto ao surgimento da indústria 4.0 a manutenção preditiva permite que se instale sensores nos mecanismos onde se consegue captar anomalias que indicam que há algo errado e possibilita o planejamento da manutenção antes que a máquina, de fato, apresente problemas [01]. O maquinário industrial é composto por máquinas eletrônica, eletromecânica, analógica ou pinel matica, podendo atuar em vários setores da indústria sendo agriculta, construção, saudê, mineração, produção (carro, materiais, etc ... ).
+As indústrias têm uma grande dependência de seu maquinário, se o mesmo ficar muito tempo parado a empresa tem menos produtividade. Para se evitar o mau funcionamento e a parada da fábrica, ao longo do tempo vem se criando vários métodos para corrigir e prevenir estes problemas, atualmente tem-se três formas de aplicação: corretiva, preventiva e preditiva. De maneira geral as logísticas de manutenção buscam otimizar o desempenho e a eficiência da máquina, a manutenção corretiva é voltada no conserto de peças com mau funcionamento ou quebradas onde se planeja ou não a manutenção do maquinário, já com mais planejamento a preventiva faz manutenções periodicamente visando o tempo de vida das peças, junto ao surgimento da indústria 4.0 a manutenção preditiva permite que se instale sensores nos mecanismos onde se consegue captar anomalias que indicam que há algo errado e possibilita o planejamento da manutenção antes que a máquina, de fato, apresente problemas [01]. O maquinário industrial é composto por máquinas eletrônica, eletromecânica, analógica ou pineumática, podendo atuar em vários setores da indústria sendo agriculta, construção, saúde, mineração, produção (carro, materiais, etc ... ).
 %Buscar uma area para aplicar
 
 \section{Objetivos}%
-Este projeto tem como objetivo auxiliar qualquer empresa que atue em are-a industrial que esteja com problemas de questões logísticas em reparação e manutenção de máquinas. Tendo a total liberdade da equipe de manutenção acessar e alimentar o sistema de qualquer lugar da fábrica e também dos líderes dos outros setores conseguirem abrir solicitações sem a necessidade de ir até o computador.
+Este projeto tem como objetivo auxiliar qualquer empresa que possua uma equipe de manutenção e que esteja com problemas em questões logísticas na manutenção de máquinas, muitas ainda utilizam planilhas localizadas em computadores e isso oferece pouca praticidade. O aplicativo garantirá liberdade por parte da equipe para acessar e alimentar o sistema a qualquer momento, assim como receber solicitações sem a necessidade de ir até o computador ou acessar o e-mail.
 
 
 %detalhar em topicos
@@ -56,18 +56,17 @@ Este projeto tem como objetivo auxiliar qualquer empresa que atue em are-a indus
 
 O aplicativo abordará 
 \begin{itemize}
-    \item Agenda para auxiliar os funcionários
-    \item Solicitação de serviço
-    \item equipamentos/ferramentas a serem utilizadas
-    \item uma dashboard que mostra o serviço contendo:
+    \item Serviços ordenados por prioridade
+    \item Solicitações de serviços
+    \item Gerenciamento dos serviços:
     \begin{itemize}
-    \item custo previsto
-    \item equipamento
-    \item prioridade 
-    \item data de inicio/termino
-    \item preço final da manutenção
-    \item funcionários na manutenção
-    \end{itemize}    
+    \item Informações do equipamento
+    \item Detalhes do serviço a ser feito
+    \item Data da última manutenção
+    \item Prioridade do serviço
+    \item Data da próxima manutenção, caso seja preventiva
+    \item Funcionário responsável
+    \end{itemize}
 \end{itemize}
     
 
@@ -94,9 +93,9 @@ Fizemos uma pesquisa no mercado em busca de aplicações que poderíamos utiliza
 Para criação do aplicativo, uma fábrica de compressores do interior de São Paulo será utilizada como referência, as planilhas de gestão de manutenções preventivas e corretivas e o e-mail de solicitação de serviço serão analisados para que o produto ofereça as mesmas possibilidades que se tem no modelo atual, tanto na modelagem dos dados quanto no design.
 
 \subsection{Métodos:}%
-O frondente será feito com a linguagem Escriptólogo utilizando o framesita Recta Native que possibilita uma versatilidade no desenvolvimento sendo compatível com iOS e Android.
-O Google Cloud Firestore será a ferramenta utilizada como banco de dados(substituindo o MySQL definido anteriormente). 
-Para organizar a produtividade do grupo, será utilizado o Trello para gerenciar as tarefas a serem feitas, Github para compartilhamento e versionamento do aplicativo. 
+O front-end será feito com a linguagem TypeScript utilizando o framework React Native que possibilita uma versatilidade no desenvolvimento sendo compatível com iOS e Android.
+O serviço Cloud Firestore do Google será a ferramenta utilizada como api e banco de dados (substituindo o MySQL e Node.js definidos anteriormente), a mudança ocorreu pela maior facilidade na aplicação do Firestore e pela segurança fornecida pelo Google
+Para organizar a produtividade do grupo, será utilizado o Trello para gerenciar as tarefas a serem feitas, Github para compartilhamento e versionamento do código. 
 
 
 %- Incluam referências bibliográficas de toda a fonte de informação qe usarem, referenciando o texto que usarem afirmações ou dados dessas fontes.
@@ -105,7 +104,7 @@ Para organizar a produtividade do grupo, será utilizado o Trello para gerenciar
 
 \section{Trabalho em andamento}%
 
-Criado a base do projeto com React Native, que dá uma base para iniciar a codar, as primeiras telas e modal realizados foram a da home, login e cadastro
+Criada a base do projeto com React Native, que dá uma base para iniciar o desenvolvimento, as primeiras telas e modal realizados foram a da home, login e cadastro
 \begin{figure}[H]
   \includegraphics[width = 0.6\linewidth]{Figures/t1.PNG}
   \caption{Telas home 1}
@@ -118,7 +117,7 @@ Criado a base do projeto com React Native, que dá uma base para iniciar a codar
   \caption{Telas de login e cadastro}
   \end{figure}
 
-  Foi implementado a autentificação e a inclusão do fare base como banco de dado da aplicação, e está sendo efetuado a tela de principal e o modal de exibição dos serviços. Para a finalização do projeto pretende -se cria telas de finalização de manutenção, principal para o luarizo (onde não trabalha com manutenção) e enviar solicitação de serviço. Pretendemos fazer um teste geral do app nas últimas semanas.
+  Foi implementado a autenticação e a inclusão do Firestore como banco de dado da aplicação, e está sendo efetuado a tela principal e o modal de exibição dos serviços. Para a finalização do projeto pretende-se criar telas de finalização de manutenção, tela principal para funcionários que não são da manutenção e enviar solicitação de serviço. Pretendemos fazer um teste geral do app nas últimas semanas.
 
 
 
@@ -141,7 +140,7 @@ O projeto se iniciou tendo uma pesquisa de mercado, em uma busca de quais aplica
   \end{figure}
 
 
-As partes restantes do projeto a serem concluídas ou feitas são telas e modal, a tela principal ficou encarregado para concluir o Bruno, modal para checar os serviços, responsável André. Integrar serviços, tela para se concluir a manutenção preventiva e corretiva, integrar finalização de serviço, tela principal para usuário que não é da manutenção, modal para enviar solicitação de serviço e integrar solicitação de serviço.
+As partes restantes do projeto a serem concluídas são telas de serviço e modal, a tela principal ficou encarregado para concluir o Bruno, modal para checar os serviços, responsável André. Integrar serviços, tela para se concluir a manutenção preventiva e corretiva, integrar finalização de serviço, tela principal para usuário que não é da manutenção, modal para enviar solicitação de serviço e integrar solicitação de serviço.
 
 
 \section{Referências}%
